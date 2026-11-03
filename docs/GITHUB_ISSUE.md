@@ -1,6 +1,6 @@
 # Perbaiki perbandingan URL pada uji pencarian
 
-**Status: direproduksi, diperbaiki, dan diuji ulang secara lokal pada 2026-11-03; belum dipublikasikan di GitHub.** Naskah ini siap ditempel ke issue pada repositori asli. Belum ada nomor issue, URL publik, atau hash commit karena belum dilakukan `git init`, commit, maupun push.
+**Status: [issue #1](https://github.com/christinesimbolon/uts-ppw-2401020158/issues/1) sudah dipublikasikan dan ditutup sebagai selesai** pada repositori [christinesimbolon/uts-ppw-2401020158](https://github.com/christinesimbolon/uts-ppw-2401020158), cabang `main`. Masalah direproduksi, diperbaiki, dan diuji ulang secara lokal pada 2026-11-03 sebelum publikasi. Issue adalah catatan teknis retrospektif yang transparan, bukan kronologi seolah perbaikan baru terjadi setelah pelaporan.
 
 ## Identitas dan lingkungan
 
@@ -85,7 +85,7 @@ Pemeriksaan aplikasi terpisah juga lulus: `php artisan test --log-junit docs/buk
 - [x] Masalah nyata dan langkah reproduksi dijelaskan.
 - [x] Akar penyebab serta perubahan alat uji dicatat.
 - [x] Pengulangan penuh lulus dan bukti lokal tersedia.
-- [ ] Buat riwayat commit nyata setelah izin pemilik, lalu tautkan commit perubahan alat uji.
-- [ ] Publikasikan issue ini pada repositori GitHub asli dan catat URL-nya.
+- [x] Versi alat uji yang telah diperbaiki tercatat pada [commit 05e65d9](https://github.com/christinesimbolon/uts-ppw-2401020158/commit/05e65d9); laporan/bukti awal pada [commit 3c81143](https://github.com/christinesimbolon/uts-ppw-2401020158/commit/3c81143).
+- [x] [Issue #1](https://github.com/christinesimbolon/uts-ppw-2401020158/issues/1) dipublikasikan pada akun Christine dan ditutup sebagai selesai karena perbaikan serta uji ulang sudah tersedia.
 
-Akun/URL repositori serta izin publikasi belum tersedia. Setelah publikasi manual, issue dapat ditutup dengan merujuk perbaikan lokal, commit sebenarnya, dan bukti uji ulang. Jangan mengarang nomor issue, hash, tanggal commit, atau tautan publik. Panduan ada di [PENGUMPULAN.md](PENGUMPULAN.md).
+Lima commit awal dibuat dengan izin Christine saat publikasi dan berhasil di-push; tanggal tidak dimundurkan. [Riwayat `main`](https://github.com/christinesimbolon/uts-ppw-2401020158/commits/main/) mencatat pengelompokan berkas yang sudah tersedia, bukan rekonstruksi palsu riwayat debugging. Pemeriksaan aplikasi terbaru `composer validate --no-check-publish && php artisan test` juga lulus 146 tes/1.092 asersi dalam 14,83 detik; log bukti sebelumnya tetap merekam 11,67 detik dan tidak dilabel ulang. Status pengumpulan ada di [PENGUMPULAN.md](PENGUMPULAN.md).

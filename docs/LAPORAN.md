@@ -14,13 +14,14 @@
 | Tanggal pengujian lokal | 2026-11-03 |
 | Basis data utama / uji | `laundry_2401020158` / `laundry_2401020158_testing` |
 | Alamat aplikasi pengguna | `http://127.0.0.1:8000/pesanan-laundry` |
-| URL repositori dan issue | Belum dipublikasikan; akun, URL, dan izin diperlukan |
+| Repositori | [christinesimbolon/uts-ppw-2401020158](https://github.com/christinesimbolon/uts-ppw-2401020158), cabang `main` |
+| Riwayat dan issue | [Minimal lima commit nyata](https://github.com/christinesimbolon/uts-ppw-2401020158/commits/main/); [issue #1 — ditutup sebagai selesai](https://github.com/christinesimbolon/uts-ppw-2401020158/issues/1) |
 
-**Hasil:** 146 tes PHPUnit dengan 1.092 asersi lulus; 12 skenario peramban/HTTP nyata lulus, termasuk sepuluh pengujian wajib. [PDF laporan](Laporan_Christine_Simbolon_2401020158.pdf) disertai bukti asli pada [direktori bukti](bukti/). Pekerjaan GitHub belum dilakukan dan tidak dianggap selesai oleh hasil pengujian lokal.
+**Hasil:** 146 tes PHPUnit dengan 1.092 asersi lulus; 12 skenario peramban/HTTP nyata lulus, termasuk sepuluh pengujian wajib. [PDF laporan](Laporan_Christine_Simbolon_2401020158.pdf) disertai bukti asli pada [direktori bukti](bukti/). Repositori, minimal lima commit, dan issue sudah dipublikasikan dengan izin Christine. Pengiriman kepada dosen belum dilakukan.
 
 ## Format laporan PDF
 
-Laporan PDF menggunakan kertas **A4 (21 × 29,7 cm)** dengan margin **3 cm pada sisi atas, bawah, kiri, dan kanan**. Isi memakai Times New Roman 12 pt dengan tabel sederhana. Cover tanpa nomor halaman memuat judul, logo UMRAH, Christine Simbolon, NIM 2401020158, fakultas, universitas, dan tahun 2026. Nomor halaman dimulai dari halaman isi pertama. Logo menggunakan salinan berkas `UMRAH.png` milik pengguna di `docs/aset/UMRAH.png`; berkas asli tidak diubah.
+Laporan PDF menggunakan kertas **A4 (21 × 29,7 cm)** dengan margin **3 cm pada sisi atas, bawah, kiri, dan kanan**. Isi memakai Times New Roman 12 pt dengan tabel sederhana. Cover tanpa nomor halaman memuat judul, logo UMRAH, Christine Simbolon, NIM 2401020158, fakultas, universitas, dan tahun 2026. Nomor halaman dimulai dari halaman isi pertama. Logo kanonis laporan dilacak di repositori pada `docs/aset/UMRAH.png`.
 
 ## Tujuan dan alur
 
@@ -95,8 +96,9 @@ GET `q` mencari `kode_pesanan`, `nama_pelanggan`, dan `nomor_telepon`. Kelompok 
 | Pemeriksaan | Hasil terverifikasi |
 | --- | --- |
 | Tanggal | 2026-11-03; waktu hasil browser `2026-11-03T15:20:02.329178+07:00` (WIB) |
-| `php artisan test --log-junit docs/bukti/phpunit.xml` | 146 tes, 1.092 asersi; 0 kegagalan, 0 kesalahan, 0 dilewati; durasi konsol eksekusi akhir 11,67 detik |
-| Bukti PHPUnit | [JUnit](bukti/phpunit.xml) dan [keluaran PHPUnit akhir](bukti/hasil_phpunit.txt) |
+| `php artisan test --log-junit docs/bukti/phpunit.xml` | Eksekusi bukti tersimpan: 146 tes, 1.092 asersi; 0 kegagalan, 0 kesalahan, 0 dilewati; 11,67 detik |
+| Bukti PHPUnit | [JUnit](bukti/phpunit.xml) dan [keluaran PHPUnit tersimpan](bukti/hasil_phpunit.txt); tidak ditimpa oleh pemeriksaan terbaru |
+| `composer validate --no-check-publish && php artisan test` | Pemeriksaan terbaru lulus; 146 tes / 1.092 asersi, durasi 14,83 detik; source aplikasi tidak berubah |
 | `py tools/uji_browser.py` | 12/12 skenario LULUS, tersimpan dalam [JSON](bukti/hasil_browser.json) |
 | `composer validate` | Lulus setelah penyelarasan berkas pengunci |
 | Pint | Lulus pada 29 berkas |
@@ -117,15 +119,15 @@ PDF laporan terdiri dari **11 halaman** (satu cover, empat halaman isi, dan enam
 
 Masalah nyata terjadi pada alat `tools/uji_browser.py`, bukan hasil pencarian aplikasi. Pada percobaan awal, asersi tangkapan layar skenario 08 membandingkan `page.url` dengan URL dari `url()->full()` secara literal. Peramban memuat `?q=081200000003&jenis_layanan_id=`, sedangkan Laravel menormalkan urutan menjadi `?jenis_layanan_id=&q=081200000003`. Hasil pencarian sudah benar, tetapi urutan berbeda membuat asersi gagal.
 
-Perbaikan pada helper `screenshot()`: pisahkan URL menggunakan `urlsplit` dari `urllib.parse`, bandingkan skema/host/path, lalu bandingkan parameter memakai `parse_qs(..., keep_blank_values=True)`. Nilai filter kosong tetap diperhitungkan tanpa menganggap urutan parameter sebagai perbedaan makna. Setelah perbaikan, pengujian penuh diulang dan **12/12 skenario lulus**. Detail reproduksi, perubahan, dan bukti tersedia pada [naskah issue siap ditempel](GITHUB_ISSUE.md).
+Perbaikan pada helper `screenshot()`: pisahkan URL menggunakan `urlsplit` dari `urllib.parse`, bandingkan skema/host/path, lalu bandingkan parameter memakai `parse_qs(..., keep_blank_values=True)`. Nilai filter kosong tetap diperhitungkan tanpa menganggap urutan parameter sebagai perbedaan makna. Setelah perbaikan, pengujian penuh diulang dan **12/12 skenario lulus**. Detail reproduksi, perubahan, dan bukti tersedia pada [catatan issue](GITHUB_ISSUE.md) serta [issue #1](https://github.com/christinesimbolon/uts-ppw-2401020158/issues/1).
 
-**Status masalah: selesai secara lokal, belum dipublikasikan sebagai GitHub Issue.** Tidak ada nomor issue, hash commit, atau URL GitHub yang dibuat-buat; belum dilakukan `git init`, commit, atau push. Publikasi memerlukan akun/URL dan izin pemilik proyek.
+**Status masalah: issue #1 sudah dipublikasikan dan ditutup sebagai selesai.** Perbaikan serta uji ulang 12/12 dilakukan sebelum publikasi; issue merupakan catatan teknis retrospektif, bukan kronologi seolah masalah dilaporkan lebih dahulu. Versi alat uji yang diperbaiki tercatat pada [commit 05e65d9](https://github.com/christinesimbolon/uts-ppw-2401020158/commit/05e65d9). Lima commit awal dibuat saat publikasi dengan izin Christine dan sudah di-push ke `main`, tanpa memundurkan tanggal.
 
 ## Simpulan
 
 Implementasi memenuhi sepuluh skenario wajib Tipe C pada pengujian lokal 2026-11-03. PHPUnit lulus 146 tes/1.092 asersi; peramban nyata lulus 12 skenario, termasuk CSRF aktif dan pembuktian isolasi basis data utama. Kendala pemeriksaan URL pada alat uji diperbaiki dan diuji ulang. Source code, SQL, dokumentasi, serta bukti berada dalam direktori proyek terisolasi; dokumen soal DOCX asli tidak diubah.
 
-**Kewajiban pengumpulan yang masih terbuka:** minimal lima commit terstruktur, publikasi repositori/push, publikasi satu issue nyata, dan pengiriman tautan melalui media dosen. Hasil lokal dan PDF bukan pengganti kewajiban GitHub tersebut; lihat [panduan pengumpulan](PENGUMPULAN.md).
+**Status pengumpulan:** repositori milik `christinesimbolon`, minimal lima commit terstruktur, push ke `main`, dan issue nyata yang ditutup sudah terpenuhi. Yang belum dilakukan adalah pengiriman tautan dan laporan melalui media dosen. Kelulusan lokal tidak menyatakan aplikasi sudah diuji pada komputer penerima; lihat [status dan panduan pengumpulan](PENGUMPULAN.md).
 
 ## Lampiran kasus tambahan
 

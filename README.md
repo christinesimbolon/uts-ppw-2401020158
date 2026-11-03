@@ -1,6 +1,6 @@
 # Sistem Pesanan Laundry — Tipe C
 
-Repository: https://github.com/christinesimbolon/uts-ppw-2401020158. Petunjuk pemasangan tersedia di bawah; checklist pengumpulan ada di [docs/PENGUMPULAN.md](docs/PENGUMPULAN.md).
+Repositori: https://github.com/christinesimbolon/uts-ppw-2401020158 — akun **christinesimbolon**, cabang **main**. [Riwayat commit](https://github.com/christinesimbolon/uts-ppw-2401020158/commits/main/) dan [issue #1 — ditutup sebagai selesai](https://github.com/christinesimbolon/uts-ppw-2401020158/issues/1). Petunjuk pemasangan tersedia di bawah; status pengumpulan ada di [docs/PENGUMPULAN.md](docs/PENGUMPULAN.md).
 
 - **Nama:** Christine Simbolon
 - **NIM:** 2401020158
@@ -10,7 +10,7 @@ Repository: https://github.com/christinesimbolon/uts-ppw-2401020158. Petunjuk pe
 
 Aplikasi CRUD pesanan dengan Laravel, PDO, dan Blade/HTML sederhana, tanpa CSS, JavaScript, Bootstrap, Tailwind, atau proses kompilasi aset. Halaman indeks memuat form tambah, pencarian, filter layanan, umpan balik, dan daftar pesanan. Fungsi `statusBerat()` menghasilkan **Besar** untuk berat ≥ 10 kg dan **Reguler** untuk berat < 10 kg.
 
-> **Hasil lokal terverifikasi, 3 November 2026:** 146 tes PHPUnit dengan 1.092 asersi lulus; 12 skenario peramban/HTTP nyata lulus, termasuk sepuluh skenario wajib, CSRF, dan isolasi data. Bukti tersedia di `docs/bukti/`. Publikasi GitHub sedang disiapkan menggunakan akun Christine; hasil publikasi dicatat setelah push dan pembuatan Issue berhasil.
+> **Hasil lokal terverifikasi, 3 November 2026:** 146 tes PHPUnit dengan 1.092 asersi lulus; 12 skenario peramban/HTTP nyata lulus, termasuk sepuluh skenario wajib, CSRF, dan isolasi data. Bukti tersedia di `docs/bukti/`. Minimal lima commit nyata telah dibuat dan di-push dengan izin Christine, tanpa memundurkan tanggal. Issue #1 telah dipublikasikan dan ditutup sebagai catatan teknis retrospektif atas perbaikan yang sudah diuji ulang.
 
 ## Lingkungan terverifikasi
 
@@ -109,7 +109,7 @@ Kegagalan `PDOException`/`QueryException` harus ditangkap dan dicatat memakai `r
 
 ## Pengujian dengan MariaDB nyata
 
-**Hasil aktual 2026-11-03: LULUS — 146 tes, 1.092 asersi**, tanpa kegagalan, kesalahan, atau tes dilewati. Durasi konsol eksekusi akhir: **11,67 detik**. Bukti: [JUnit](docs/bukti/phpunit.xml) dan [keluaran PHPUnit akhir](docs/bukti/hasil_phpunit.txt).
+**Pemeriksaan terbaru 2026-11-03:** `composer validate --no-check-publish && php artisan test` lulus, dengan **146 tes / 1.092 asersi** dalam **14,83 detik**. [JUnit](docs/bukti/phpunit.xml) dan [keluaran PHPUnit tersimpan](docs/bukti/hasil_phpunit.txt) berasal dari eksekusi sebelumnya yang juga lulus 146 tes/1.092 asersi dalam **11,67 detik**, tanpa kegagalan, kesalahan, atau tes dilewati. Bukti lama tidak ditimpa atau dilabel ulang sebagai eksekusi terbaru.
 
 Untuk pemeriksaan ulang:
 
@@ -163,9 +163,9 @@ Python, Playwright, Chrome, serta ReportLab/Pillow untuk `tools/buat_laporan.py`
 - [Sumber laporan dengan hasil aktual](docs/LAPORAN.md).
 - [Laporan PDF](docs/Laporan_Christine_Simbolon_2401020158.pdf): 11 halaman, format A4 dengan margin 3 cm di semua sisi, Times New Roman, dan cover sederhana berlogo UMRAH. Memuat enam contoh tangkapan layar asli; seluruh 11 PNG tersedia terpisah pada direktori bukti.
 - [Bukti pengujian dan tangkapan layar asli](docs/bukti/).
-- [Issue siap ditempel — masalah selesai lokal, belum dipublikasikan](docs/GITHUB_ISSUE.md).
-- [Panduan lima kelompok commit dan publikasi manual](docs/PENGUMPULAN.md).
+- [Catatan issue dan perbaikannya](docs/GITHUB_ISSUE.md); [issue #1 di GitHub — selesai](https://github.com/christinesimbolon/uts-ppw-2401020158/issues/1).
+- [Status pengumpulan dan panduan pembaruan selanjutnya](docs/PENGUMPULAN.md).
 
 Masalah nyata pada alat uji telah diperbaiki: perbandingan literal URL pencarian diganti perbandingan komponen URL serta parameter kueri agar perbedaan urutan parameter tidak menimbulkan kegagalan palsu. Pengujian ulang 12 skenario lulus; rincian ada pada dokumen issue. Ini bukan bug hasil pencarian aplikasi.
 
-**Yang belum dilakukan:** pembuatan riwayat minimal lima commit, publikasi repositori/push, publikasi satu GitHub Issue, dan pengiriman tautan melalui media dosen. Akun, izin, serta URL GitHub belum diberikan; tidak ada nomor issue, hash commit, atau tautan publik rekaan.
+**Status GitHub:** repositori, minimal lima commit, push ke `main`, dan issue #1 sudah tersedia. Perbaikan serta uji ulang mendahului publikasi issue dan commit awal; tidak dibuat kronologi atau tanggal mundur. **Pengiriman tautan/laporan kepada dosen belum dilakukan**, dan hasil lokal bukan klaim bahwa aplikasi telah diuji pada komputer penerima.
