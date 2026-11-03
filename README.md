@@ -161,7 +161,7 @@ Python, Playwright, Chrome, serta ReportLab/Pillow untuk `tools/buat_laporan.py`
 ## Dokumentasi dan pengumpulan
 
 - [Sumber laporan dengan hasil aktual](docs/LAPORAN.md).
-- [Laporan PDF](docs/Laporan_Christine_Simbolon_2401020158.pdf): 12 halaman, format A4 dengan margin 3 cm di semua sisi, Times New Roman, dan cover sederhana berlogo UMRAH. Memuat kode DDL dan DML langsung dari berkas SQL pada bagian 2.1–2.2 serta enam contoh tangkapan layar asli; seluruh 11 PNG tersedia terpisah pada direktori bukti.
+- [Laporan PDF](docs/Laporan_Christine_Simbolon_2401020158.pdf): 17 halaman, format A4 dengan margin 3 cm di semua sisi, Times New Roman, dan cover sederhana berlogo UMRAH. Memuat kode DDL dan DML langsung dari berkas SQL pada bagian 2.1–2.2 serta seluruh 11 tangkapan layar asli untuk sepuluh skenario wajib. Salinan PNG tetap tersedia pada direktori bukti.
 - [Bukti pengujian dan tangkapan layar asli](docs/bukti/).
 - [Catatan issue dan perbaikannya](docs/GITHUB_ISSUE.md); [issue #1 di GitHub — selesai](https://github.com/christinesimbolon/uts-ppw-2401020158/issues/1).
 - [Status pengumpulan dan panduan pembaruan selanjutnya](docs/PENGUMPULAN.md).

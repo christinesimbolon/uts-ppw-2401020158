@@ -167,7 +167,7 @@ Dua skenario tambahan yang lulus:
 
 Suite PHPUnit memakai PDO/MariaDB nyata, bukan SQLite. Pengaman memeriksa konfigurasi serta `SELECT DATABASE()`; pemuat fixture tidak mengeksekusi `CREATE DATABASE`/`USE` dari SQL utama dan membangun ulang hanya `pesanan_laundry` lalu `jenis_layanan` pada basis data uji. Pengujian tidak dijalankan paralel. Prosedur pemeriksaan ulang ada dalam [README](../README.md#pengujian-dengan-mariadb-nyata).
 
-PDF laporan terdiri dari **12 halaman** (satu cover, lima halaman isi termasuk kode DDL/DML, dan enam halaman lampiran) dengan **enam contoh tangkapan layar asli**; seluruh **11 PNG** tersedia terpisah pada direktori bukti sebagai tangkapan **seluruh halaman asli**. URL permintaan dirender oleh Blade di header halaman; **bukan bilah alamat asli peramban**. Tidak ada lapisan bilah alamat buatan, penimpaan, atau manipulasi gambar. Dua gambar dipakai untuk form edit dan hasil update; kasus lain masing-masing satu gambar.
+PDF laporan terdiri dari **17 halaman** (satu cover, lima halaman isi termasuk kode DDL/DML, dan sebelas halaman lampiran). Seluruh **11 tangkapan layar asli** untuk sepuluh skenario wajib sudah dimuat dalam PDF, masing-masing satu halaman. Salinan PNG tersedia terpisah pada direktori bukti sebagai tangkapan **seluruh halaman asli**. URL permintaan dirender oleh Blade di header halaman; **bukan bilah alamat asli peramban**. Tidak ada lapisan bilah alamat buatan, penimpaan, atau manipulasi gambar. Dua gambar dipakai untuk form edit dan hasil update; kasus lain masing-masing satu gambar.
 
 ## Kendala, perbaikan, dan uji ulang
 

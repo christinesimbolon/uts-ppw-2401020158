@@ -207,16 +207,22 @@ def main():
     add('<b>Issue #1:</b> <link href="https://github.com/christinesimbolon/uts-ppw-2401020158/issues/1">https://github.com/christinesimbolon/uts-ppw-2401020158/issues/1</link>', "kecil")
     add("Perbaikan dan uji ulang dilakukan sebelum publikasi issue; issue merupakan catatan teknis retrospektif, bukan kronologi rekaan. Pengiriman tautan dan laporan melalui media dosen belum dilakukan.", "kecil")
     heading("Keterangan Lampiran")
-    add("Laporan ini menyertakan enam contoh tangkapan layar. Seluruh sebelas gambar tersedia di docs/bukti/. Gambar diambil langsung dari aplikasi; URL aktual ditampilkan oleh Blade pada header halaman, bukan bilah browser buatan. Bukti asli tidak diubah.")
+    add("Laporan ini menyertakan seluruh sebelas tangkapan layar untuk sepuluh skenario wajib. Pengujian update memiliki dua gambar: form edit dan hasil perubahan. Salinan PNG asli tersedia di docs/bukti/.")
+    add("Gambar diambil langsung dari aplikasi; URL aktual ditampilkan oleh Blade pada header halaman, bukan bilah browser buatan. Bukti asli tidak diubah. Rincian tes otomatis dan pengujian tambahan CSRF tetap dibuktikan melalui keluaran PHPUnit, XML, serta JSON, bukan screenshot setiap kasus.", "kecil")
     add("Waktu hasil browser: " + escape(browser["waktu"]) + ". Angka pengujian dibaca dari berkas JUnit aktual.", "kecil")
 
     examples = [
         ("01_read.png", "1. Tampilan Data Awal"),
         ("02_create_valid.png", "2. Penambahan Data Berhasil"),
         ("03_create_tidak_valid.png", "3. Validasi Input dan Input Lama"),
-        ("05b_update.png", "4. Pembaruan Data Berhasil"),
-        ("09_filter.png", "5. Filter Jenis Layanan"),
-        ("10_error_handling.png", "6. Penanganan Gangguan Koneksi"),
+        ("04_duplikat.png", "4. Penolakan Kode dan Telepon Duplikat"),
+        ("05a_form_edit.png", "5a. Form Edit Berisi Data Lama"),
+        ("05b_update.png", "5b. Pembaruan Data Berhasil"),
+        ("06_konflik_update.png", "6. Penolakan Konflik saat Update"),
+        ("07_delete.png", "7. Penghapusan Pesanan Berhasil"),
+        ("08_pencarian.png", "8. Pencarian Pesanan"),
+        ("09_filter.png", "9. Filter Jenis Layanan"),
+        ("10_error_handling.png", "10. Penanganan Gangguan Koneksi"),
     ]
     for filename, caption in examples:
         story.append(PageBreak())
