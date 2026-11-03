@@ -1,0 +1,69 @@
+{
+  "waktu": "2026-11-03T15:20:02.329178+07:00",
+  "basis_data_uji": "laundry_2401020158_testing",
+  "url_uji": "http://127.0.0.1:8765",
+  "url_simulasi_error": "http://127.0.0.1:8766",
+  "jenis_bukti": "PNG seluruh halaman asli dari Chrome. URL aktual ditampilkan oleh Blade di header, tanpa bilah browser buatan atau modifikasi gambar.",
+  "hasil": [
+    {
+      "uji": "Read",
+      "status": "LULUS",
+      "hasil": "Tiga pesanan wajib dan nama layanan tampil."
+    },
+    {
+      "uji": "Create valid",
+      "status": "LULUS",
+      "hasil": "LD00000004 tersimpan, feedback sukses dan kategori Besar tampil."
+    },
+    {
+      "uji": "Create tidak valid",
+      "status": "LULUS",
+      "hasil": "Server menolak nama kosong/berat0; old() mempertahankan input."
+    },
+    {
+      "uji": "Duplikat",
+      "status": "LULUS",
+      "hasil": "Kode dan nomor telepon yang sama ditolak; data tetap empat."
+    },
+    {
+      "uji": "Update",
+      "status": "LULUS",
+      "hasil": "Form menampilkan data lama; berat12 dan nama baru tersimpan."
+    },
+    {
+      "uji": "Konflik update",
+      "status": "LULUS",
+      "hasil": "Kode/telepon Rafi ditolak; LD00000004 tidak berubah."
+    },
+    {
+      "uji": "Delete",
+      "status": "LULUS",
+      "hasil": "Form POST dengan CSRF dan spoofing DELETE menghapus hanya pesanan4."
+    },
+    {
+      "uji": "Pencarian",
+      "status": "LULUS",
+      "hasil": "Ketiga kolom diuji bergantian: kode, nama, nomor telepon."
+    },
+    {
+      "uji": "Filter",
+      "status": "LULUS",
+      "hasil": "Cuci Kering menampilkan Ayu/Nina; gabungan kata Nina menyisakan Nina."
+    },
+    {
+      "uji": "CSRF HTTP nyata",
+      "status": "LULUS",
+      "hasil": "POST, spoofed PUT, DELETE tanpa token ditolak419; token sah mencapai validasi302."
+    },
+    {
+      "uji": "Error handling",
+      "status": "LULUS",
+      "hasil": "Koneksi sengaja diarahkan ke port1: HTTP503 aman; rincian tercatat melalui report()."
+    },
+    {
+      "uji": "Isolasi dan uji ulang",
+      "status": "LULUS",
+      "hasil": "Koneksi normal kembali200; tiga data awal utuh dan database utama tidak berubah."
+    }
+  ]
+}

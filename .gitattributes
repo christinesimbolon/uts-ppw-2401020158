@@ -5,6 +5,10 @@
 *.html diff=html
 *.md diff=markdown
 *.php diff=php
+*.pdf binary
+*.png binary
+
+docs/bukti/hasil_phpunit.txt -whitespace
 
 /.github export-ignore
 CHANGELOG.md export-ignore

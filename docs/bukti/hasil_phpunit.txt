@@ -1,0 +1,166 @@
+Waktu: 2026-11-03T15:15:18.484405+07:00
+Perintah: php artisan test --log-junit docs/bukti/phpunit.xml
+Kode keluar: 0
+
+
+   PASS  Tests\Unit\LaundrySchemaTest
+  ✓ database creation and use are removed instead of executed                                           0.01s  
+  ✓ multiline mixed case database statements and comments are removed
+  ✓ semicolons comment markers and doubled quotes inside values are preserved
+  ✓ a final statement without semicolon is supported
+  ✓ unsupported or malformed fixtures fail closed before table reset with data set "database statements only"
+  ✓ unsupported or malformed fixtures fail closed before table reset with data set "no executable statements"
+  ✓ unsupported or malformed fixtures fail closed before table reset with data set "unrelated table"
+  ✓ unsupported or malformed fixtures fail closed before table reset with data set "qualified main table"
+  ✓ unsupported or malformed fixtures fail closed before table reset with data set "destructive command"
+  ✓ unsupported or malformed fixtures fail closed before table reset with data set "unrelated insert"
+  ✓ unsupported or malformed fixtures fail closed before table reset with data set "cross-database foreign key"
+  ✓ unsupported or malformed fixtures fail closed before table reset with data set "unrelated foreign key"
+  ✓ unsupported or malformed fixtures fail closed before table reset with data set "unterminated string"
+  ✓ unsupported or malformed fixtures fail closed before table reset with data set "unterminated comment"
+
+   PASS  Tests\Unit\StatusBeratTest
+  ✓ status berat uses ten as the inclusive besar boundary with data set "minimum valid weight"          0.01s  
+  ✓ status berat uses ten as the inclusive besar boundary with data set "first seed weight"
+  ✓ status berat uses ten as the inclusive besar boundary with data set "below threshold"
+  ✓ status berat uses ten as the inclusive besar boundary with data set "exact threshold"
+  ✓ status berat uses ten as the inclusive besar boundary with data set "above threshold"
+  ✓ status berat uses ten as the inclusive besar boundary with data set "maximum valid weight"
+
+   PASS  Tests\Feature\LaundrySqlConstraintsTest
+  ✓ connection is real mysql and selects only the exact testing database                                0.24s  
+  ✓ database rejects each duplicate order unique field with data set "unique order code"                0.10s  
+  ✓ database rejects each duplicate order unique field with data set "unique telephone"                 0.08s  
+  ✓ database rejects duplicate service name                                                             0.09s  
+  ✓ database rejects null for each required field with data set "service name"                          0.07s  
+  ✓ database rejects null for each required field with data set "order code"                            0.09s  
+  ✓ database rejects null for each required field with data set "customer name"                         0.08s  
+  ✓ database rejects null for each required field with data set "telephone"                             0.07s  
+  ✓ database rejects null for each required field with data set "weight"                                0.10s  
+  ✓ database rejects null for each required field with data set "service foreign key"                   0.09s  
+  ✓ database rejects a nonexistent foreign key                                                          0.12s  
+  ✓ database enforces the unsigned one to twenty weight range with data set "below zero"                0.09s  
+  ✓ database enforces the unsigned one to twenty weight range with data set "below minimum"             0.10s  
+  ✓ database enforces the unsigned one to twenty weight range with data set "above maximum"             0.10s  
+  ✓ service primary key updates cascade to orders                                                       0.07s  
+  ✓ referenced service cannot be deleted                                                                0.07s  
+
+   PASS  Tests\Feature\PesananLaundryDatabaseErrorTest
+  ✓ read database errors are reported and render a safe 503 with data set "index order query"           0.15s  
+  ✓ read database errors are reported and render a safe 503 with data set "index service query"         0.08s  
+  ✓ read database errors are reported and render a safe 503 with data set "edit order query"            0.09s  
+  ✓ read database errors are reported and render a safe 503 with data set "edit service query"          0.10s  
+  ✓ mutation database errors are reported redirect safely and keep old input with data set "store inse… 0.10s  
+  ✓ mutation database errors are reported redirect safely and keep old input with data set "update wri… 0.12s  
+  ✓ mutation database errors are reported redirect safely and keep old input with data set "delete wri… 0.08s  
+  ✓ mutation database errors are reported redirect safely and keep old input with data set "store code… 0.09s  
+  ✓ mutation database errors are reported redirect safely and keep old input with data set "store phon… 0.09s  
+  ✓ mutation database errors are reported redirect safely and keep old input with data set "store serv… 0.10s  
+  ✓ mutation database errors are reported redirect safely and keep old input with data set "update exi… 0.08s  
+  ✓ mutation database errors are reported redirect safely and keep old input with data set "delete exi… 0.10s  
+  ✓ validation exceptions are not swallowed as database errors with data set "store validation"         0.08s  
+  ✓ validation exceptions are not swallowed as database errors with data set "update validation"        0.11s  
+
+   PASS  Tests\Feature\PesananLaundryRepositoryTest
+  ✓ layanan returns the two sql seeded services                                                         0.11s  
+  ✓ daftar returns all orders without filters                                                           0.07s  
+  ✓ daftar searches the three columns using literal values with data set "code"                         0.08s  
+  ✓ daftar searches the three columns using literal values with data set "partial name"                 0.08s  
+  ✓ daftar searches the three columns using literal values with data set "phone"                        0.08s  
+  ✓ daftar searches the three columns using literal values with data set "no match"                     0.07s  
+  ✓ daftar searches the three columns using literal values with data set "quote injection"              0.09s  
+  ✓ daftar searches the three columns using literal values with data set "stacked query injection"      0.07s  
+  ✓ daftar applies service filter even when search is empty                                             0.09s  
+  ✓ daftar combines search and service filter                                                           0.10s  
+  ✓ cari returns an object or null                                                                      0.10s  
+  ✓ simpan writes bound text and all other fields to mysql                                              0.10s  
+  ✓ ubah updates only the target and returns false for missing id                                       0.09s  
+  ✓ ubah an existing identical order still returns true                                                 0.07s  
+  ✓ hapus returns whether an order was deleted                                                          0.08s  
+  ✓ kode terpakai honours the except id and does not interpolate input                                  0.09s  
+  ✓ telepon terpakai honours the except id and does not interpolate input                               0.09s  
+  ✓ layanan tersedia checks real service ids                                                            0.08s  
+
+   PASS  Tests\Feature\PesananLaundryTest
+  ✓ index displays all seed orders services and student identity                                        0.10s  
+  ✓ named routes have the required paths and http methods                                               0.12s  
+  ✓ store persists every field and flashes success                                                      0.10s  
+  ✓ edit displays the existing order and service options                                                0.08s  
+  ✓ update persists all changed fields                                                                  0.11s  
+  ✓ update accepts the orders own unchanged unique values                                               0.09s  
+  ✓ an entirely unchanged update is not mistaken for a missing order                                    0.09s  
+  ✓ delete removes only the requested order                                                             0.08s  
+  ✓ store rejects each duplicate with a field error with data set "kode pesanan"                        0.09s  
+  ✓ store rejects each duplicate with a field error with data set "nomor telepon"                       0.09s  
+  ✓ update rejects another orders unique value with data set "kode pesanan"                             0.09s  
+  ✓ update rejects another orders unique value with data set "nomor telepon"                            0.09s  
+  ✓ invalid store data has field errors and is not persisted with data set "missing code"               0.08s  
+  ✓ invalid store data has field errors and is not persisted with data set "code too short"             0.08s  
+  ✓ invalid store data has field errors and is not persisted with data set "code too long"              0.08s  
+  ✓ invalid store data has field errors and is not persisted with data set "code contains nonalphanume… 0.10s  
+  ✓ invalid store data has field errors and is not persisted with data set "array code"                 0.08s  
+  ✓ invalid store data has field errors and is not persisted with data set "missing customer"           0.09s  
+  ✓ invalid store data has field errors and is not persisted with data set "customer too short"         0.09s  
+  ✓ invalid store data has field errors and is not persisted with data set "customer too long"          0.08s  
+  ✓ invalid store data has field errors and is not persisted with data set "array customer"             0.09s  
+  ✓ invalid store data has field errors and is not persisted with data set "missing phone"              0.09s  
+  ✓ invalid store data has field errors and is not persisted with data set "phone too short"            0.08s  
+  ✓ invalid store data has field errors and is not persisted with data set "phone too long"             0.10s  
+  ✓ invalid store data has field errors and is not persisted with data set "array phone"                0.08s  
+  ✓ invalid store data has field errors and is not persisted with data set "missing weight"             0.08s  
+  ✓ invalid store data has field errors and is not persisted with data set "zero weight"                0.08s  
+  ✓ invalid store data has field errors and is not persisted with data set "negative weight"            0.09s  
+  ✓ invalid store data has field errors and is not persisted with data set "weight above maximum"       0.07s  
+  ✓ invalid store data has field errors and is not persisted with data set "fractional weight"          0.09s  
+  ✓ invalid store data has field errors and is not persisted with data set "nonnumeric weight"          0.07s  
+  ✓ invalid store data has field errors and is not persisted with data set "array weight"               0.09s  
+  ✓ invalid store data has field errors and is not persisted with data set "missing service"            0.08s  
+  ✓ invalid store data has field errors and is not persisted with data set "unknown service"            0.08s  
+  ✓ invalid store data has field errors and is not persisted with data set "invalid service type"       0.09s  
+  ✓ invalid store data has field errors and is not persisted with data set "array service"              0.08s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "missing code"      0.10s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "code too short"    0.10s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "code too long"     0.08s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "code contains non… 0.08s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "array code"        0.08s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "missing customer"  0.10s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "customer too shor… 0.08s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "customer too long… 0.08s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "array customer"    0.09s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "missing phone"     0.10s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "phone too short"   0.08s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "phone too long"    0.08s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "array phone"       0.09s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "missing weight"    0.10s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "zero weight"       0.08s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "negative weight"   0.09s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "weight above maxi… 0.09s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "fractional weight… 0.07s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "nonnumeric weight… 0.09s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "array weight"      0.08s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "missing service"   0.10s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "unknown service"   0.10s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "invalid service t… 0.07s  
+  ✓ invalid update data has field errors and leaves the row unchanged with data set "array service"     0.10s  
+  ✓ validation redirect preserves old input                                                             0.09s  
+  ✓ both inclusive weight boundaries are accepted with data set "minimum"                               0.08s  
+  ✓ both inclusive weight boundaries are accepted with data set "maximum"                               0.10s  
+  ✓ text is trimmed stripped of tags and escaped in blade with data set "store"                         0.10s  
+  ✓ text is trimmed stripped of tags and escaped in blade with data set "update"                        0.10s  
+  ✓ search matches each of the three columns with data set "order code"                                 0.10s  
+  ✓ search matches each of the three columns with data set "partial customer name"                      0.09s  
+  ✓ search matches each of the three columns with data set "telephone"                                  0.10s  
+  ✓ service filter and search are combined with and                                                     0.09s  
+  ✓ sql injection search is treated as literal input                                                    0.09s  
+  ✓ missing orders return 404 without changing data with data set "edit"                                0.07s  
+  ✓ missing orders return 404 without changing data with data set "update"                              0.11s  
+  ✓ missing orders return 404 without changing data with data set "delete"                              0.11s  
+  ✓ unsupported methods cannot mutate data with data set " g e t is not delete"                         0.09s  
+  ✓ unsupported methods cannot mutate data with data set " p o s t is not update"                       0.10s  
+  ✓ unsupported methods cannot mutate data with data set " p a t c h is not p u t"                      0.08s  
+  ✓ unsupported methods cannot mutate data with data set " p u t cannot target collection"              0.07s  
+  ✓ index and edit are plain html without css or javascript                                             0.09s  
+
+  Tests:    146 passed (1092 assertions)
+  Duration: 11.67s
+
