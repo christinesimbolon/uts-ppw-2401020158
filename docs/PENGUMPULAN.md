@@ -10,7 +10,7 @@
 | Cabang dan push | `main`; lima commit awal berhasil di-push dengan izin Christine |
 | Riwayat | [Minimal lima commit nyata](https://github.com/christinesimbolon/uts-ppw-2401020158/commits/main/), dibuat saat publikasi, tanpa memundurkan tanggal |
 | Issue teknis | [Issue #1](https://github.com/christinesimbolon/uts-ppw-2401020158/issues/1), dipublikasikan dan ditutup sebagai selesai |
-| Laporan | [Sumber laporan](LAPORAN.md) dan [PDF](Laporan_Christine_Simbolon_2401020158.pdf): 11 halaman, A4, margin 3 cm semua sisi, Times New Roman, cover berlogo UMRAH |
+| Laporan | [Sumber laporan](LAPORAN.md) dan [PDF](Laporan_Christine_Simbolon_2401020158.pdf): 12 halaman, A4, margin 3 cm semua sisi, Times New Roman, cover berlogo UMRAH; kode DDL/DML dicantumkan langsung pada bagian 2.1–2.2 |
 | Pengujian terbaru | `composer validate --no-check-publish && php artisan test` lulus; 146 tes / 1.092 asersi, 14,83 detik |
 | Bukti PHPUnit tersimpan | [JUnit](bukti/phpunit.xml) dan [keluaran tes](bukti/hasil_phpunit.txt), dari eksekusi sebelumnya: 146 tes / 1.092 asersi, 11,67 detik; tidak ditimpa atau dilabel ulang |
 | Peramban nyata | [12/12 skenario LULUS](bukti/hasil_browser.json), termasuk 10 wajib, CSRF, dan isolasi; waktu `2026-11-03T15:20:02.329178+07:00` |

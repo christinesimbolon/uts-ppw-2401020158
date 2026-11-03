@@ -35,6 +35,7 @@ DOCS = ROOT / "docs"
 BUKTI = DOCS / "bukti"
 LOGO = DOCS / "aset" / "UMRAH.png"
 OUTPUT = DOCS / "Laporan_Christine_Simbolon_2401020158.pdf"
+SQL_SOURCE = ROOT / "database" / "sql" / "laundry_2401020158.sql"
 MARGIN = 3 * cm
 WIDTH = A4[0] - 2 * MARGIN
 HEIGHT = A4[1] - 2 * MARGIN
@@ -49,6 +50,12 @@ def main():
         raise RuntimeError("Lengkapi seluruh 12 hasil browser terlebih dahulu.")
     if not LOGO.is_file():
         raise RuntimeError("Logo belum tersedia di docs/aset/UMRAH.png.")
+    sql = SQL_SOURCE.read_text(encoding="utf-8")
+    ddl, marker, dml = sql.partition("INSERT INTO jenis_layanan")
+    if not marker or "CREATE DATABASE" not in ddl:
+        raise RuntimeError("Berkas SQL harus memuat DDL dan INSERT data awal jenis layanan.")
+    ddl = ddl[ddl.index("CREATE DATABASE"):].strip()
+    dml = (marker + dml).strip()
 
     for name, filename in [("TimesLaporan", "times.ttf"), ("TimesLaporanBold", "timesbd.ttf"), ("Kode", "consola.ttf")]:
         path = Path("C:/Windows/Fonts") / filename
@@ -70,6 +77,7 @@ def main():
         "sel": ParagraphStyle("Sel", fontName="TimesLaporan", fontSize=9.5, leading=12),
         "kecil": ParagraphStyle("Kecil", fontName="TimesLaporan", fontSize=10, leading=13, spaceAfter=7),
         "kode": ParagraphStyle("Kode", fontName="Kode", fontSize=8, leading=11, spaceAfter=8),
+        "kode_sql": ParagraphStyle("KodeSQL", fontName="Kode", fontSize=9, leading=11, spaceAfter=8),
     }
     story = []
 
@@ -101,6 +109,15 @@ def main():
             ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
         ]))
         story.extend([result, Spacer(1, 7)])
+
+    def sql_block(text):
+        # Pecah hanya antarargumen, bukan di dalam literal nama atau nomor telepon.
+        formatted = text.replace(", created_at, updated_at)", ",\n     created_at, updated_at)")
+        formatted = formatted.replace(", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)",
+                                      ",\n     CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
+        if any(pdfmetrics.stringWidth(line, "Kode", 9) > WIDTH for line in formatted.splitlines()):
+            raise RuntimeError("Baris kode SQL melebihi margin laporan; tata ulang antarargumennya.")
+        story.append(Preformatted(formatted, styles["kode_sql"]))
 
     # Cover berdiri sendiri dan tidak diberi nomor halaman.
     story.append(Spacer(1, 1.2 * cm))
@@ -136,6 +153,14 @@ def main():
         ["LD00000003", "Nina Putri", "081200000003", "3", "Cuci Kering"],
     ], [1.2, 1.25, 1.3, .35, 1.15])
     add("Fungsi statusBerat() menampilkan kategori <b>Besar</b> jika berat minimal 10 kg dan <b>Reguler</b> jika di bawah 10 kg. Kategori ditampilkan melalui percabangan dan perulangan pada Blade.")
+
+    story.append(PageBreak())
+    heading("2.1 Kode DDL (Data Definition Language)")
+    add("DDL berikut membentuk database, dua tabel, dan constraint. USE memilih database yang dipakai. Kode diambil langsung dari database/sql/laundry_2401020158.sql.", "kecil")
+    sql_block(ddl)
+    heading("2.2 Kode DML (Data Manipulation Language)")
+    add("INSERT berikut mengisi dua jenis layanan dan tiga pesanan awal sesuai soal. Impor hanya dilakukan pada pemasangan baru agar tidak berbenturan dengan data yang sudah ada.", "kecil")
+    sql_block(dml)
 
     story.append(PageBreak())
     heading("3. Implementasi Aplikasi")
